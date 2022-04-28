@@ -10,9 +10,9 @@ namespace algorithms
 		}
 
 		/// <summary>
-		/// Sum array the brute force way
+		/// Sum array the brute force way. This is O(n) or linear
 		/// </summary>
-		public void OrderN()
+		public void SumArrayBruteForceWay()
 		{
 			long arraySize = 10;
 
@@ -42,8 +42,10 @@ namespace algorithms
 
 		/// <summary>
 		/// Sum integers using Carl Gauss formula https://nrich.maths.org/2478
+		/// This is a NON loop solution so we are now at O(1) or constant time
+		/// Much better way
 		/// </summary>
-		public void OrderNWithGauss()
+		public void SumArrayUsingCarlGaussFormula()
 		{
 			Console.WriteLine("Running Order N With Gauss Math");
 			long arraySize = 10;

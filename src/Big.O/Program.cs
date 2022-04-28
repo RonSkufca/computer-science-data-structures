@@ -2,6 +2,6 @@
 using algorithms;
 
 var bigO = new BigO();
-bigO.OrderN();
+bigO.SumArrayBruteForceWay();
 Console.WriteLine();
-bigO.OrderNWithGauss();
+bigO.SumArrayUsingCarlGaussFormula();
