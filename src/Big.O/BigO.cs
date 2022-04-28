@@ -8,6 +8,10 @@ namespace algorithms
 		{
 
 		}
+
+		/// <summary>
+		/// Sum array the brute force way
+		/// </summary>
 		public void OrderN()
 		{
 			long arraySize = 10;
@@ -21,7 +25,12 @@ namespace algorithms
 				Stopwatch stopWatch = new Stopwatch();
 				stopWatch.Start();
 
-				var sum = RunLoop(array);
+				long sum = 0;
+
+				for(long j = 0; j < array.Length; i++)
+				{
+					sum += j;
+				}
 
 				stopWatch.Stop();
 				TimeSpan ts = stopWatch.Elapsed;
@@ -31,6 +40,9 @@ namespace algorithms
 			}			
 		}
 
+		/// <summary>
+		/// Sum integers using Carl Gauss formula https://nrich.maths.org/2478
+		/// </summary>
 		public void OrderNWithGauss()
 		{
 			Console.WriteLine("Running Order N With Gauss Math");
@@ -67,18 +79,6 @@ namespace algorithms
 			}
 
 			return numbers;
-		}
-
-		private long RunLoop(long[] array)
-		{
-			long sum = 0;
-
-			for(long i = 0; i < array.Length; i++)
-			{
-				sum += i;				
-			}
-
-			return sum;
-		}
+		}		
 	}
 }
