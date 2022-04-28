@@ -1,2 +1,1 @@
-# computer-science-data-structures
-Code demonstrate various data structures
+Study guide for data structures and algorithms
