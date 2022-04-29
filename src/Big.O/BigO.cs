@@ -55,12 +55,12 @@ namespace algorithms
 				Console.WriteLine($"Array Size {arraySize}");
 				long[] array = CreateArray(arraySize);
 
-				long lastItemInArray = array[array.Length - 1];
-
-				long sum = lastItemInArray * (lastItemInArray + 1)/2;			
-
 				Stopwatch stopWatch = new Stopwatch();
 				stopWatch.Start();
+
+				long lastItemInArray = array[array.Length - 1];
+
+				long sum = lastItemInArray * (lastItemInArray + 1)/2;				
 
 				stopWatch.Stop();
 				TimeSpan ts = stopWatch.Elapsed;
@@ -69,6 +69,42 @@ namespace algorithms
 
 				arraySize = arraySize * 10;
 			}
+		}
+
+		/// <summary>
+		/// Attempts to determine if a given array contains duplicates
+		/// The nested loops working over the same collection should ring alarm bells as this is O(n^2).
+		/// This approach is horrible and there is almost always a better way.
+		/// </summary>
+		public void ArrayDuplicateFinderSuperBadWay(int[] arrayToSearch)
+		{
+			Console.WriteLine("Starting check for duplicates in array.");		
+
+			Stopwatch stopWatch = new Stopwatch();
+			stopWatch.Start();
+
+			bool hasDuplicates = false;
+
+			for(int i = 0; i < arrayToSearch.Length; i++)
+			{
+				int currentItem = arrayToSearch[i];
+
+				for(int j = 0; j < arrayToSearch.Length; j++)
+				{
+					if(j != i)
+					{
+						if(currentItem == arrayToSearch[j])
+							hasDuplicates = true;
+					}
+				}
+			}
+
+			string duplicateMessage = (hasDuplicates) ? "Array has duplicates" : "Array does not have duplicates";
+
+			stopWatch.Stop();
+			TimeSpan ts = stopWatch.Elapsed;
+			Console.WriteLine("Elapsed Time is hhmmss: {0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+			Console.WriteLine($"{duplicateMessage}");
 		}
 
 		private long[] CreateArray(long arraySize)
