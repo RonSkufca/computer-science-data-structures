@@ -1,5 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using LeetCode;
 
-char[] s = new char[] {'h','e','l','l','o' };
-new StringReverser().ReverseUsingTwoPointerApproach(s);
+var fizzBuzz = new FizzBuzz();
+
+var answer = fizzBuzz.Calculate(15);
+
+answer.ToList().ForEach(item => { Console.WriteLine(item); });
+
