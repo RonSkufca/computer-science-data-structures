@@ -1,9 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using LeetCode;
 
-var fizzBuzz = new FizzBuzz();
+int[] nums = { 1, 1, 2 };
+int[] nums1 = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
+var removeDuplicates = new RemoveDuplicatesFromSortedArray();
+int duplicateRemoved = removeDuplicates.RemoveDuplicates(nums);
+Console.WriteLine(duplicateRemoved);
 
-var answer = fizzBuzz.Calculate(15);
-
-answer.ToList().ForEach(item => { Console.WriteLine(item); });
-
+duplicateRemoved = removeDuplicates.RemoveDuplicates(nums1);
+Console.WriteLine(duplicateRemoved);
