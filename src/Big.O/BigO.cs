@@ -1,10 +1,10 @@
 ﻿using System.Diagnostics;
 
-namespace algorithms
+namespace Algorithms.BigO
 {
-	internal class BigO
+	internal class SumArrays
 	{
-		public BigO()
+		public SumArrays()
 		{
 
 		}
