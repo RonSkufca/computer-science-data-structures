@@ -1,25 +1,33 @@
-﻿namespace LeetCode.RemoveDuplicatesFromSortedArray
+﻿using System.Text;
+
+namespace LeetCode.RemoveDuplicatesFromSortedArray
 {
 	internal class Runner
 	{
 		public void Run()
 		{
-
-			int[] nums = { 1, 1, 2 };
-			int[] nums1 = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
 			var removeDuplicates = new RemoveDuplicatesFromSortedArray();
-			int duplicateRemoved = removeDuplicates.RemoveDuplicates(nums);
-			Console.WriteLine(duplicateRemoved);
 
-			duplicateRemoved = removeDuplicates.RemoveDuplicates(nums1);
-			Console.WriteLine(duplicateRemoved);
+			int[] nums = { 1, 1, 2 };			
+			int[] arrayWithDuplicatesRemoved = removeDuplicates.RemoveDuplicates(nums);
+			PrintResult(arrayWithDuplicatesRemoved);
 
+			//int[] nums1 = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
+			//arrayWithDuplicatesRemoved = removeDuplicates.RemoveDuplicates(nums1);
+			//PrintResult(arrayWithDuplicatesRemoved);
 		}
-	}
+
+		private void PrintResult(int[] nums)
+		{
+			var builder = new StringBuilder();
+			nums.ToList().ForEach(item => builder.Append($"{item}|"));
+			Console.WriteLine(builder.ToString());
+		}
+	}	
 
 	internal class RemoveDuplicatesFromSortedArray
 	{
-		public int RemoveDuplicates(int[] nums)
+		public int[] RemoveDuplicates(int[] nums)
 		{
 			// We are going to use the 2 pointer approach here
 			int endIndex = nums.Length - 1;
@@ -40,8 +48,7 @@
 					endIndex--;
 				}
 			}
-
-			return 0;
+			return nums;
 		}
 	}
 }
