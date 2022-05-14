@@ -49,6 +49,91 @@
 			return _head;
 		}
 
+		internal bool TryFind(string value, out Node foundNode)
+		{
+			foundNode = Find(value);
+
+			if(foundNode != null)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		private Node Find(string value)
+		{
+			Node current = _head;
+
+			while(current.Next != null)
+			{
+				if(current.Value == value)
+				{
+					return current;					
+				}
+				current = current.Next;
+			}
+
+			return null;
+		}
+
+		internal bool TryDelete(string value)
+		{
+			var node = Find(value);
+
+			if(node == null)
+			{
+				return false;
+			}
+			else
+			{
+				Delete(node);
+				return true;
+			}
+		}
+
+		private void Delete(Node node)
+		{
+			Node current = _head;
+			Node previous = _head;
+			bool firstTime = true;
+
+			while(current.Next != null)
+			{
+				// we found the node we wish to delete
+				if(current.Value == node.Value)
+				{
+					// if we are deleting the head node we need to set the _head to current
+					if(firstTime)
+					{
+						_head = current.Next;
+						current = null;
+						previous = null;
+					}
+					else
+					{
+						// set the previous node's next pointer to the current next
+						// we need to link up previous to the current next to re-wire everything
+						previous.Next = current.Next;
+						current = null;
+					}					
+				}
+
+				if(!firstTime)
+				{
+					previous = current;
+					current = current.Next;
+				}
+				else
+				{
+					firstTime = false;
+					current = current.Next;
+				}
+			}
+		}
+
 		public void PrintList()
 		{
 			int index = 0;
@@ -71,11 +156,8 @@
 			{
 				current = current.Next;
 			}
-
-			Console.WriteLine($"Node '{current.Value}' is the last item in the list.");
+			
 			return current;
-		}
-
-		
+		}		
 	}
 }
