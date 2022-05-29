@@ -2,7 +2,9 @@
 {
 	public class Node
 	{
-		public string Question { get; set; }
+		public double QuestionNumber { get; set; }
+
+		public string QuestionText { get; set; }
 
 		/// <summary>
 		/// Left side is defined as a yes
@@ -14,9 +16,10 @@
 		/// </summary>
 		public Node No { get; set; } = null;
 
-		public Node(string question)
+		public Node(double questionNumber, string questionText)
 		{
-			Question = question;
+			QuestionNumber = questionNumber;
+			QuestionText = questionText;
 		}
 	}
 
@@ -29,11 +32,11 @@
 
 		}
 
-		public void Insert(string question, QuestionResponse questionResponse)
+		public void InsertQuestion(double questionNumber, string questionText)
 		{
 			Node currentNode = _root;
 
-			Node newNode = new Node(question);
+			Node newNode = new Node(questionNumber, questionText);
 
 			// we are inserting the root or first node
 			if(currentNode == null)
@@ -42,34 +45,34 @@
 				return;
 			}
 
-			if(newNode.Question == currentNode.Question)
+			if(newNode.QuestionText == currentNode.QuestionText)
 				return;
 
 			// Yes responses will go on the left side of the node
-			if(questionResponse == QuestionResponse.YES)
-			{
-				if(currentNode.Yes == null)
-				{
-					currentNode.Yes = newNode;
-				}
-				else
-				{
-					currentNode = currentNode.Yes;
-					Insert(newNode.Question, questionResponse);
-				}
-			}
-			else if(questionResponse == QuestionResponse.NO)
-			{
-				if(currentNode.No == null)
-				{
-					currentNode.No = newNode;
-				}
-				else
-				{
-					currentNode = currentNode.No;
-					Insert(newNode.Question, questionResponse);
-				}
-			}			
+			//if(questionResponse == QuestionResponse.YES)
+			//{
+			//	if(currentNode.Yes == null)
+			//	{
+			//		currentNode.Yes = newNode;
+			//	}
+			//	else
+			//	{
+			//		currentNode = currentNode.Yes;
+			//		Insert(questionNumber, newNode.Question);
+			//	}
+			//}
+			//else if(questionResponse == QuestionResponse.NO)
+			//{
+			//	if(currentNode.No == null)
+			//	{
+			//		currentNode.No = newNode;
+			//	}
+			//	else
+			//	{
+			//		currentNode = currentNode.No;
+			//		Insert(newNode.Question);
+			//	}
+			//}			
 		}		
 	}
 

@@ -3,10 +3,9 @@
 using DataStructures;
 using DataStructures.BinarySearchTree;
 
-var questionTree = new Questions();
-questionTree.Insert("During the last three years have you lived outside of Oregon for 60 or more consecutive days?", QuestionResponse.NoResponseNecessary);
-questionTree.Insert("Please list the last three locations. Please include the city, state, and residence dates for all locations.", QuestionResponse.YES);
-questionTree.Insert("Most recent city", QuestionResponse.NoResponseNecessary);
+var fib = new Fibonacci();
+fib.Run();
+
 
 
 //var myList = new LinkedList();
