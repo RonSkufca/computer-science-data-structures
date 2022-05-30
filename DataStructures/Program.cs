@@ -1,10 +1,15 @@
 ﻿// See https://aka.ms/new-console-template for more information
-
 using DataStructures;
-using DataStructures.BinarySearchTree;
 
 var fib = new Fibonacci();
-fib.Run();
+
+while(!(Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape))
+{
+	var data = Console.ReadLine();
+	Int32.TryParse(data, out int n);
+	int fibResult = fib.SlowWay(n);
+	Console.WriteLine($"Fibonacci Result {fibResult}");
+}
 
 
 
