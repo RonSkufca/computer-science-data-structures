@@ -1,17 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using DataStructures;
 
-var fib = new Fibonacci();
-
-while(!(Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape))
-{
-	var data = Console.ReadLine();
-	Int32.TryParse(data, out int n);
-	int fibResult = fib.SlowWay(n);
-	Console.WriteLine($"Fibonacci Result {fibResult}");
-}
-
-
+new Fibonacci().Run();
 
 //var myList = new LinkedList();
 //myList.Insert("Ron");

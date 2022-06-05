@@ -2,40 +2,66 @@
 {
 	internal class Fibonacci
 	{
-		public int IterativeWay(int n)
+		private long counter = 1;
+
+		public void Run()
 		{
-			// Base or termination condition.
-			// used to prevent infinite loop
-			if(n <= 1)
-				return n;
-
-			int fibNumber = 0;
-			int f1, f2;
-			f1 = 0;
-			f2 = 1;
-
-			for(int i = 2; i <= n; i++)
+			while(!(Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape))
 			{
-				fibNumber = f1 + f2;
-				f1 = f2;
-				f2 = fibNumber;
-			}
+				var data = Console.ReadLine();
 
-			return fibNumber;
+				Int32.TryParse(data, out int n);
+
+				int Fn = IterativeWay(n);
+				Console.WriteLine($"Fibonacci Result {Fn}");
+
+				for(int i = 0; i < n; i++)
+				{
+					Console.WriteLine($"Fn at position {i} is {RecursiveWay(i)}. It tool {counter} calls to get there.");
+				}				
+			}
 		}
 
-		public int SlowWay(int n)
+		public int IterativeWay(int n)
 		{
-			//Console.WriteLine($"Inside SlowWay N: {n}");			
-
-			// Base or termination condition.
-			// used to prevent infinite loop
+			// Base or termination condition. used to prevent infinite loop
 			if(n <= 1)
 				return n;
 
-			//Console.WriteLine($"n = {n}");
+			int Fn = 0;
+			int Fminus1 = 0;
+			int Fminus2 = 1;			
 
-			return SlowWay(n - 1) + SlowWay(n - 2);
+			// Fn = Fn-1 + Fn-2
+			for(int i = 0; i < n; i++)
+			{
+				if(i < 2)
+					Fn = i;
+				else
+				{
+					Fn = Fminus1 + Fminus2;
+					Fminus1 = Fminus2;
+					Fminus2 = Fn;
+				}
+				
+				Console.WriteLine($"Fn: {Fn}");
+			}
+
+			return Fn;
+		}
+
+		public int RecursiveWay(int n)
+		{
+			counter++;
+
+			// Base or termination condition. used to prevent infinite loop
+			if(n == 0)
+				return 0; //To return the first Fibonacci number
+						  
+			if(n == 1)
+				return 1; //To return the second Fibonacci number   
+
+			return RecursiveWay(n - 1) + RecursiveWay(n - 2);			
 		}
 	}
 }
