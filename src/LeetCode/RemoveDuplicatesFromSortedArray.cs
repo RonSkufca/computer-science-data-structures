@@ -8,13 +8,10 @@ namespace LeetCode.RemoveDuplicatesFromSortedArray
 		{
 			var removeDuplicates = new RemoveDuplicatesFromSortedArray();
 
-			int[] nums = { 1, 1, 2 };			
+			int[] nums = { 0,0, 1, 1, 1, 2, 2, 3, 3, 4 };
+			//removeDuplicates.RemoveDuplicates1(nums);
 			int[] arrayWithDuplicatesRemoved = removeDuplicates.RemoveDuplicates(nums);
-			PrintResult(arrayWithDuplicatesRemoved);
-
-			//int[] nums1 = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
-			//arrayWithDuplicatesRemoved = removeDuplicates.RemoveDuplicates(nums1);
-			//PrintResult(arrayWithDuplicatesRemoved);
+			PrintResult(arrayWithDuplicatesRemoved);			
 		}
 
 		private void PrintResult(int[] nums)
@@ -27,28 +24,37 @@ namespace LeetCode.RemoveDuplicatesFromSortedArray
 
 	internal class RemoveDuplicatesFromSortedArray
 	{
+		public void RemoveDuplicates1(int[] nums)
+		{
+			int left = 1;
+			for(int right = 1; right < nums.Length; right++)
+			{
+				if(nums[right] != nums[right - 1])
+				{
+					nums[left] = nums[right];
+					left++;
+				}
+			}			
+		}
+
 		public int[] RemoveDuplicates(int[] nums)
 		{
 			// We are going to use the 2 pointer approach here
-			int endIndex = nums.Length - 1;
+			int previous = 1;
 
-			for(int startIndex = 0; startIndex < nums.Length - 1; startIndex++)
+			for(int index = 1; index < nums.Length; index++)
 			{
 				// Since the array is sorted we can 
 				// check for duplicate right next to the current item
-				if(nums[startIndex] == nums[startIndex + 1])
+				if(nums[index] != nums[index - 1])
 				{
 					// we found a duplicate, swap the item with the last one
-					nums[startIndex + 1] = nums[endIndex];
+					nums[previous] = nums[index];
 
-					// replace the item at the end with garbage indicator
-					nums[endIndex] = -1;
-
-					// move the end pointer to the left
-					endIndex--;
+					previous++;
 				}
 			}
-			return nums;
+			return nums.Length;
 		}
 	}
 }
