@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using DataStructures;
-//new Fibonacci().Run();
+new Fibonacci().Run();
 
 //var myList = new LinkedList();
 //myList.Insert("Ron");

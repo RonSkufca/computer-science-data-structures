@@ -10,8 +10,8 @@ namespace LeetCode.RemoveDuplicatesFromSortedArray
 
 			int[] nums = { 0,0, 1, 1, 1, 2, 2, 3, 3, 4 };
 			//removeDuplicates.RemoveDuplicates1(nums);
-			int[] arrayWithDuplicatesRemoved = removeDuplicates.RemoveDuplicates(nums);
-			PrintResult(arrayWithDuplicatesRemoved);			
+			//int arrayWithDuplicatesRemoved = removeDuplicates.RemoveDuplicates(nums);
+			//PrintResult(arrayWithDuplicatesRemoved);			
 		}
 
 		private void PrintResult(int[] nums)
@@ -37,7 +37,7 @@ namespace LeetCode.RemoveDuplicatesFromSortedArray
 			}			
 		}
 
-		public int[] RemoveDuplicates(int[] nums)
+		public int RemoveDuplicates(int[] nums)
 		{
 			// We are going to use the 2 pointer approach here
 			int previous = 1;
