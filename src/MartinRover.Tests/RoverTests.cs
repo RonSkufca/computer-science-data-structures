@@ -4,14 +4,22 @@ namespace MartinRover.Tests
 	public class RoverTests
 	{
 		[TestMethod]
-		public void Rover_Initialize_Success()
+		public void Rover_Initialize_To_Defaults()
 		{
-		}
+			var rover = new Rover();
 
-		[TestMethod]
-		public void Rover_Initialize_Failure()
-		{
-		}
+			rover.Initialize();
+
+			var position = new Position()
+			{
+				Orientation = 'N',
+				Location = new Coordinate() { X = 0, Y = 0 }
+			};
+
+			Assert.AreEqual(position.Orientation, rover.Position.Orientation);
+			Assert.AreEqual(position.Location.X, rover.Position.Location.X);
+			Assert.AreEqual(position.Location.Y, rover.Position.Location.Y);
+		}		
 
 		/// <summary>
 		/// Scenario: Mission control would like to know the rover's position
@@ -21,6 +29,19 @@ namespace MartinRover.Tests
 		[TestMethod]
 		public void Rover_Get_Initial_Position()
 		{
+			var rover = new Rover();
+
+			rover.Initialize();
+
+			var position = new Position()
+			{
+				Orientation = 'N',
+				Location = new Coordinate() { X = 0, Y = 0 }
+			};
+
+			Assert.AreEqual(position.Orientation, rover.Position.Orientation);
+			Assert.AreEqual(position.Location.X, rover.Position.Location.X);
+			Assert.AreEqual(position.Location.Y, rover.Position.Location.Y);
 		}
 
 		/// <summary>
@@ -34,7 +55,29 @@ namespace MartinRover.Tests
 		[TestMethod]
 		public void Invalid_Command_Is_Entered()
 		{
+			char[] commands = null;
 
+			var rover = new Rover();
+
+			rover.Initialize();
+
+			var response = rover.ProcessCommands(commands);
+
+			Assert.AreEqual("Invalid command 'X' found.", response);
+		}
+
+		[TestMethod]
+		public void No_Command_Is_Entered()
+		{
+			char[] commands = null;
+
+			var rover = new Rover();
+
+			rover.Initialize();
+
+			var response = rover.ProcessCommands(commands);
+
+			Assert.AreEqual("No commands found to process.", response);
 		}
 
 		/// <summary>
