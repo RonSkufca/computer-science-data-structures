@@ -8,13 +8,14 @@ namespace ShoppingCart
         private const int B = 30;
         private const int C = 20;
 
-        private ICollection<Offer> _offers;
+        private ICollection<Offer> _specialOffers;
 
         public Checkout()
         {
-            _offers = new Collection<Offer>()
+            _specialOffers = new Collection<Offer>()
             {
-                new Offer('A', 3, 130)
+                new Offer('A', 3, 130),
+                new Offer('C', 2, 35)
             };
         }
 
@@ -25,22 +26,12 @@ namespace ShoppingCart
 
             var totalPrice = 0;
 
-            if(EligibleForSpecialOffer(items))
-                
-
             items.ToList().ForEach(item =>
             {
                 switch (item)
                 {
                     case 'A':
-                        if (EligibleForSpecialOffer(items))
-                        {
-                            totalPrice += _offers.FirstOrDefault(offer => offer.Item == 'A').Price;
-                        }
-                        else
-                        {
-                            totalPrice += A;
-                        }                            
+                       totalPrice += A;
                         break;
                     case 'B':
                         totalPrice += B;
@@ -72,24 +63,6 @@ namespace ShoppingCart
             return false;
         }
 
-        public sealed class Offer
-        {
-            private char _item;
-            private int _quantity;
-            private int _price;
-
-            public char Item => _item;
-
-            public int Quantity => _quantity;
-
-            public int Price => _price;
-
-            public Offer(char item, int quantity, int offerPrice)
-            {
-                _item = item;
-                _quantity = quantity;
-                _price = offerPrice;
-            }
-        }
+      
     }
 }

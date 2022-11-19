@@ -15,9 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MartinRover", "src\MartinRo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MartinRover.Tests", "src\MartinRover.Tests\MartinRover.Tests.csproj", "{0CC8568D-466F-47BE-93E9-B9A504EF3C9B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Checkout", "src\Cart.Checkout\Checkout.csproj", "{C076F01E-E679-4880-831F-A6437AA758D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCart", "src\Cart.Checkout\ShoppingCart.csproj", "{C076F01E-E679-4880-831F-A6437AA758D3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Checkout.Tests", "src\Cart.Checkout.Tests\Checkout.Tests\Checkout.Tests.csproj", "{EE79B7F3-6DB2-4D57-9314-3DF4A5F7A286}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCart.Tests", "src\Cart.Checkout.Tests\Checkout.Tests\ShoppingCart.Tests.csproj", "{EE79B7F3-6DB2-4D57-9314-3DF4A5F7A286}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,7 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ShoppingCart;
 using System.Collections.ObjectModel;
 
-namespace ShopingCart.Tests
+namespace ShoppingCart.Tests
 {
     [TestClass]
     public class CheckoutTests
